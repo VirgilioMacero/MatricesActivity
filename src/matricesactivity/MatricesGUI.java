@@ -184,7 +184,7 @@ public class MatricesGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(LblMultiplyColumn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(LblFirstInverted))
                 .addGap(18, 18, 18)
@@ -314,6 +314,10 @@ public class MatricesGUI extends javax.swing.JFrame {
         LblMultiplyColumn.setText("");
         LblSecondaryDiagonal.setText("");
         TxtPowLowerBaseUpperExpo.setText("");
+        DefaultTableModel Tabla = (DefaultTableModel) TblMatriz.getModel();
+        
+        Tabla.setColumnCount(0);
+        
 
     }
 

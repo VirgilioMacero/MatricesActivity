@@ -108,7 +108,14 @@ public class Matriz {
 
         }
 
-        return BigInteger.valueOf(aux);
+        if (aux < 0) {
+            
+            return BigInteger.valueOf((aux)*(-1));
+            
+        } else {
+
+            return BigInteger.valueOf(aux);
+        }
     }
 
     public String InvertedColumn() {
@@ -126,31 +133,29 @@ public class Matriz {
         return Inverted;
 
     }
-    
-    public BigInteger SeconodaryDiagonal(){
-    
+
+    public BigInteger SeconodaryDiagonal() {
+
         long aux = 0;
         int counter = 0;
-        for (int i = this.value - 1; i >= 0 ; i--) {
-            
-                
+        for (int i = this.value - 1; i >= 0; i--) {
+
             aux = aux + this.Matrix[i][counter];
 
             counter++;
         }
-        
-    
-        return BigInteger.valueOf(aux/this.value);
+
+        return BigInteger.valueOf(aux / this.value);
     }
-    
-    public BigInteger PowByExtremes(){
-    
-        BigInteger base = BigInteger.valueOf(OrderMatrix()[(this.value*this.value) -1]);
-        
+
+    public BigInteger PowByExtremes() {
+
+        BigInteger base = BigInteger.valueOf(OrderMatrix()[(this.value * this.value) - 1]);
+
         int Expo = OrderMatrix()[0];
-        
+
         return base.pow(Expo);
-    
+
     }
 
 }
