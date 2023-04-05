@@ -5,6 +5,7 @@
 package matricesactivity;
 
 import java.awt.HeadlessException;
+import java.awt.event.FocusEvent;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -231,9 +232,9 @@ public class MatricesGUI extends javax.swing.JFrame {
                         LblMultiplyColumn.setText(String.valueOf(theMatriz.MultiplyFirstColumn()));
 
                         LblFirstInverted.setText(theMatriz.InvertedColumn());
-                        
+
                         LblSecondaryDiagonal.setText(String.valueOf(theMatriz.SeconodaryDiagonal()));
-                        
+
                         TxtPowLowerBaseUpperExpo.append(String.valueOf(theMatriz.PowByExtremes()));
 
                     } else {
@@ -302,6 +303,7 @@ public class MatricesGUI extends javax.swing.JFrame {
 
     private void BtnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnLimpiarActionPerformed
         CleanComponents();
+
     }//GEN-LAST:event_BtnLimpiarActionPerformed
 
     private void CleanComponents() {
@@ -315,9 +317,8 @@ public class MatricesGUI extends javax.swing.JFrame {
         LblSecondaryDiagonal.setText("");
         TxtPowLowerBaseUpperExpo.setText("");
         DefaultTableModel Tabla = (DefaultTableModel) TblMatriz.getModel();
-        
+
         Tabla.setColumnCount(0);
-        
 
     }
 

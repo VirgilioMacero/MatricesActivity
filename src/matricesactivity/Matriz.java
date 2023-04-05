@@ -43,10 +43,10 @@ public class Matriz {
         for (int i = 0; i < this.value; i++) {
             int[] StandBy = new int[this.value];
             int counter = 0;
+            
             for (int j = 0; j < this.value; j++) {
 
-                this.Matrix[i][j] = (int) (Math.random() * (999 - 1) + 1);
-
+                this.Matrix[i][j] = (int) (Math.random() * ( 999 -(-999) + 1)) -999;
                 StandBy[counter] = this.Matrix[i][j];
                 counter++;
             }
@@ -94,7 +94,7 @@ public class Matriz {
 //------------------------------------------------------------------
         return aux;
     }
-
+//------Here We multiply only the values from the first Column------
     public BigInteger MultiplyFirstColumn() {
 
         long aux = 1;
@@ -117,7 +117,8 @@ public class Matriz {
             return BigInteger.valueOf(aux);
         }
     }
-
+//---------------------------------------------------------------------
+//----------Here we get the Last Value and inverted its characters----- 
     public String InvertedColumn() {
 
         String StringAux = String.valueOf(MultiplyFirstColumn());
@@ -133,7 +134,8 @@ public class Matriz {
         return Inverted;
 
     }
-
+//---------------------------------------------------------------------
+//-----Here We Plus the Oposite Diagonal and get the Average Valiu-----  
     public BigInteger SeconodaryDiagonal() {
 
         long aux = 0;
@@ -147,10 +149,40 @@ public class Matriz {
 
         return BigInteger.valueOf(aux / this.value);
     }
-
+//-------------------------------------------------------------------------
+//-----------Here we calculate the Pow with the smaller Positive Value as a base and
+//the Longest Positive as a Exponent
+    
     public BigInteger PowByExtremes() {
+  
+        int Counter = 0;
+        
+        
+        for (int i = 0; i < OrderMatrix().length; i++) {
+            
+            if (OrderMatrix()[i] > 0) {
+                
+                Counter++;
+                
+            }
+            
+        }
 
-        BigInteger base = BigInteger.valueOf(OrderMatrix()[(this.value * this.value) - 1]);
+        int[] PositiveArray = new int[Counter];
+        
+        for (int i = 0; i < OrderMatrix().length; i++) {
+            
+            if (OrderMatrix()[i] > 0) {
+                
+                PositiveArray[i] = OrderMatrix()[i];
+                
+            }
+            
+        }
+        
+        System.out.println(Arrays.toString(PositiveArray));
+        
+        BigInteger base = BigInteger.valueOf(PositiveArray[PositiveArray.length - 1]);
 
         int Expo = OrderMatrix()[0];
 
